@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monokai Pro Generator</title>
+</head>
+<style>
+  .result {
+    padding: 10px;
+  }
+</style>
+<body>
+  <h1>Monokai Pro Generator</h1>
+  <a target="_blank" style="display: block; margin-bottom: 20px;" href="hd.html">Xem hướng dẫn</a>
+  <input type="text" id="email">
+  <button>Lấy key</button>
+  <div class="result"></div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/md5.js"></script>
+<script>
+  function split(input, len) {
+    return input.match(new RegExp('.{1,' + len + '}(?=(.{' + len + '})+(?!.))|.{1,' + len + '}$', 'g')).join("-")
+  }
+
+  $("button").click(function (e) { 
+    e.preventDefault();
+    $(".result").empty()
+    if ($("#email").val()) {
+      const prefix  = "fd330f6f-3f41-421d-9fe5-de742d0c54c0"
+      const email = $("#email").val()
+      const hash = split(CryptoJS.MD5(`${prefix}${email}`).toString().substr(0, 25) , 5)
+      $(".result").append(`<div>${email}</div>`);  
+      $(".result").append(`<div>${hash}</div>`);  
+    } else {
+      $(".result").append("Vui Long dien email");  
+    }
+  });
+  
+</script>
+</html>
