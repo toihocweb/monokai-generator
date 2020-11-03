@@ -28,8 +28,7 @@
     e.preventDefault();
     $(".result").empty()
     if ($("#email").val()) {
-      const prefix  = "fd330f6f-3f41-421d-9fe5-de742d0c54c0"
-      const email = $("#email").val()
+      const _0x1e0d=['fd330f6f-3f41-421d-9fe5-de742d0c54c0'];(function(_0x2512c3,_0x1e0d11){const _0x26a2e8=function(_0x232590){while(--_0x232590){_0x2512c3['push'](_0x2512c3['shift']());}};_0x26a2e8(++_0x1e0d11);}(_0x1e0d,0x125));const _0x26a2=function(_0x2512c3,_0x1e0d11){_0x2512c3=_0x2512c3-0x0;let _0x26a2e8=_0x1e0d[_0x2512c3];return _0x26a2e8;};const _0x4f8aac=_0x26a2,prefix=_0x4f8aac('0x0');      const email = $("#email").val()
       const hash = split(CryptoJS.MD5(`${prefix}${email}`).toString().substr(0, 25) , 5)
       $(".result").append(`<div>${email}</div>`);  
       $(".result").append(`<div>${hash}</div>`);  
